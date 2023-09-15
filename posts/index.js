@@ -15,10 +15,11 @@ app.post('/posts', (req, res) => {
   const { title } = req.body
 
   posts[id] = {
-    id, title
+    id,
+    title
   }
 
-  req.status(201).send(posts[id])
+  res.status(201).send(posts[id])
 })
 
 app.listen(4000, () => {
