@@ -10,7 +10,7 @@ const PostCreate = () => {
   const onSubmit = async event => {
     event.preventDefault()
 
-    await axios.post('http://localhost:5173/posts', { title })
+    await axios.post('http://localhost:4000/posts', { title })
 
     setTitle('')
   }
@@ -29,7 +29,9 @@ const PostCreate = () => {
             ></Form.Control>
           </Form.Group>
 
-          <Button className="btn" type='submit'>Submit</Button>
+          <Button className="btn" type="submit">
+            Submit
+          </Button>
         </Form>
       </Container>
     </>
