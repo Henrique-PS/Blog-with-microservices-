@@ -3,7 +3,7 @@ import { Container, Button } from 'react-bootstrap'
 import axios from 'axios'
 import PostCard from './components/PostCard'
 
-const PostList = ({ postsSize }) => {
+const PostList = ({ title }) => {
   const [posts, setPosts] = useState({})
 
   const fetchPosts = async () => {
@@ -13,7 +13,7 @@ const PostList = ({ postsSize }) => {
 
   useEffect(() => {
     fetchPosts()
-  }, [postsSize])
+  }, [title])
 
   const renderedPosts = Object.values(posts).map(post => {
 

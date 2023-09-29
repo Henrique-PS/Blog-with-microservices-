@@ -1,7 +1,6 @@
 import React from 'react'
 import './styles.css'
-import CommentCreate from '../CommentCrate'
-import CommentList from '../CommentList'
+import CommentCreate from '../CommentCreate'
 
 const PostCard = ({ postId, title}) => {
   return (

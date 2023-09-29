@@ -7,15 +7,14 @@ import PostList from '../PostList'
 
 const PostCreate = () => {
   const [title, setTitle] = useState('')
-  const [postsSize, setPostsSize] = useState()
+  const [completeTitle, setCompleteTitle] = useState()
 
   const onSubmit = async event => {
     event.preventDefault()
-    const res = await axios('http://localhost:4000/posts')
 
     await axios.post('http://localhost:4000/posts', { title })
     setTitle('')
-    setPostsSize(Object.values(res.data).length)
+    setCompleteTitle(title)
   }
 
   return (
@@ -40,7 +39,7 @@ const PostCreate = () => {
         </Form>
       </Container>
       <hr />
-      <PostList postsSize={postsSize}/>
+      <PostList title={completeTitle}/>
     </>
   )
 }

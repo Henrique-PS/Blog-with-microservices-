@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
-const CommentList = ({ postId, commentsSize }) => {
+const CommentList = ({ postId, content }) => {
   const [comments, setComments] = useState([])
 
   const fetchData = async () => {
@@ -13,7 +13,7 @@ const CommentList = ({ postId, commentsSize }) => {
 
   useEffect(() => {
     fetchData()
-  }, [commentsSize])
+  }, [content])
 
   const rederedComments = comments.map(comment => {
     return <li key={comment.id}>{comment.content}</li>
