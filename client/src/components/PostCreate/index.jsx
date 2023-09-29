@@ -2,9 +2,8 @@ import React, { Component, useEffect, useState } from 'react'
 import { Button, Form, Container } from 'react-bootstrap'
 import './styles.css'
 import axios from 'axios'
-import Card from '../PostList/components/Card'
 import PostList from '../PostList'
-import ReactDOM from 'react-dom/client'
+
 
 const PostCreate = () => {
   const [title, setTitle] = useState('')

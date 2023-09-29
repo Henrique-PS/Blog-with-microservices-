@@ -1,22 +1,29 @@
 import React, { useState, useEffect } from 'react'
 import { Container, Button } from 'react-bootstrap'
 import axios from 'axios'
-import Card from './components/Card'
+import PostCard from './components/PostCard'
 
-const PostList = ({postsSize}) => {
+const PostList = ({ postsSize }) => {
   const [posts, setPosts] = useState({})
-  
+
   const fetchPosts = async () => {
     const res = await axios('http://localhost:4000/posts')
-    setPosts(res.data);;
+    setPosts(res.data)
   }
 
   useEffect(() => {
-    fetchPosts() 
+    fetchPosts()
   }, [postsSize])
 
-  const renderedPosts = Object.values(posts).map(posts => {
-    return <Card key={posts.id} title={posts.title} />
+  const renderedPosts = Object.values(posts).map(post => {
+
+    return (
+      <PostCard
+        key={post.id}
+        title={post.title}
+        postId={post.id}
+      />
+    )
   })
   // --> Object.values(posts): retonra um array com todos os valores dentro de posts
 
@@ -24,9 +31,7 @@ const PostList = ({postsSize}) => {
     <>
       <Container>
         <h1>Posts</h1>
-        <div className="d-flex flex-row flex-wrap">
-          {renderedPosts}
-        </div>
+        <div className="d-flex flex-row flex-wrap">{renderedPosts}</div>
       </Container>
     </>
   )
